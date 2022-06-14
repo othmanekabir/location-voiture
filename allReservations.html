@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Booking</title>
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,900" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="utility.js"></script>
+
+</head>
+    <body>
+        <div class="sidebar">
+            <div class="sidebar-brand">
+            <h2><span class="fa fa-user-o"></span>Best cars</h2>
+            </div>
+
+            <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="reservation.html" ><span class="fa fa-tasks"></span><span>Reservation</span></a>
+                </li>
+                <li>
+                    <a href="allReservations.html" class="active"><span class="fa fa-th-large"></span><span>Historique</span></a>
+                </li>
+                <li>
+                    <a href="statistiques.html"><span class="fa fa-line-chart"></span><span>Statistique</span></a>
+                </li>
+                
+            </ul>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg" style="float: right;margin-top: -80px; background: #008ea1;" onclick="deconnexion()">Log out</button>
+        </div>
+        <div class="container">
+            <div class="container-form">
+                <form action="#">
+                    <h2 class="heading heading-yellow">Réservations</h2>
+
+                    <div class="row top-buffer">
+
+                        <div class="col-12 col-lg-6">
+                            <div class="row top-buffer justify-content-center">
+                                <label class="col-5">Date de résérvation</label>
+                                <input class="col-5 col-offset-1" type="date" id="dateresa">
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-12 col-lg-6">
+                            <div class="row top-buffer justify-content-center">
+                                <label class="col-5">Nom client</label>
+                                <input class="col-5" id="nomclient" >
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="btn" type="button" onclick="searchallrents('containerResultResa')">Rechercher</button>
+                    
+                      
+                     
+                </form>
+            </div>
+        </div>
+
+        <div class="containerResultResa row " id="containerResultResa">
+        
+             
+        </div> 
+
+         <!-- Modal 2 modification location-->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                    <h5 class="modal-title" >Modifier cette reservation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="row top-buffer">
+
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">marque</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modalMarque">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">model</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modalModel">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">client</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modalClient">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">Date debut</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modalDateDebut">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">Date Fin</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modalDateFin">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                <button type="button" class="btn btn-primary" id="ModalBtnModi" >Terminer</button>
+                              </div>
+
+                            <input class="col-5 col-offset-1" type="hidden" id="modalid">
+                        </div>    
+                    </div>
+                </div>   
+            </div>
+        </div>
+
+
+        <!-- Modal 3 ajout accident-->
+        <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                    <h5 class="modal-title" >Ajouter un accident</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="row top-buffer">
+
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">marque</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modaltwoMarque">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">model</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modaltwoModel">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">client</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modaltwoClient">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">Date d'accident</label>
+                                    <input class="col-5 col-offset-1" type="date" id="modaltwoDateAccident" >
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">Description</label>
+                                    <textarea class="col-5 col-offset-1"  id="modaltwoDescription"  rows="5" ></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                <button type="button" class="btn btn-primary" id="ModalBtnAjtAcc">Terminer</button>
+                              </div>
+
+                            <input class="col-5 col-offset-1" type="hidden" id="modaltwoid">
+                            <input class="col-5 col-offset-1" type="hidden" id="modaltwoidclient">
+                            <input class="col-5 col-offset-1" type="hidden" id="modaltwoidvoiture">
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- Modal 4 supprimer accident-->
+         <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" >Supprimer un accident</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="row top-buffer">
+
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">marque</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modalMarquefordelete">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">model</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modalModelfordelete">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">client</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modalClientfordelete">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">Date debut</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modalDateDebutfordelete">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <div class="row top-buffer justify-content-center">
+                                    <label class="col-5">Date Fin</label>
+                                    <input class="col-5 col-offset-1" type="text" id="modalDateFinfordelete">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-12">
+                                <input class="col-5 col-offset-1" type="hidden" id="modalfoorid">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                <button type="button" class="btn btn-primary" id="ModalBtnsuppr" >Supprimer</button>
+                              </div>
+
+                            <input class="col-5 col-offset-1" type="hidden" id="modalidfordelete">
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </body>
+</html>

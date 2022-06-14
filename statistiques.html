@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Booking</title>
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,900" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+
+</head>
+    <body>
+
+        <div class="sidebar">
+            <div class="sidebar-brand">
+            <h2><span class="fa fa-user-o"></span>Best cars</h2>
+            </div>
+
+            <div class="sidebar-menu">
+            <ul>
+                
+                <li>
+                    <a href="reservation.html" ><span class="fa fa-tasks"></span><span>Reservation</span></a>
+                </li>
+                <li>
+                    <a href="allReservations.html" ><span class="fa fa-th-large"></span><span>Historique</span></a>
+                </li>
+                <li>
+                    <a href="statistiques.html" class="active"><span class="fa fa-line-chart"></span><span>Statistique</span></a>
+                </li>
+                
+            </ul>
+            </div>
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-primary btn-lg" style="float: right;margin-top: 0px; background: #008ea1;" onclick="deconnexion()">Log out</button>
+        </div>
+
+        <div class="containerResultstatistique" >
+            <div class="row app-classWithPad">
+                <div class="col-12 col-sm-12 col-md-6">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="col-12 col-sm-12 col-md-5 col-offset-1 app-text-justify">
+                    <p>Nihil morati post haec militares avidi saepe turbarum adorti sunt Montium primum, qui divertebat in proximo, levi corpore senem atque morbosum, et hirsutis resticulis cruribus eius innexis divaricaturn sine spiramento ullo ad usque praetorium traxere praefecti.</p>
+                </div>
+            </div>
+
+            <div class="row app-classWithPad">
+                <div class="col-12 col-sm-12 col-md-6">
+                    <canvas id="myChart2"></canvas>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-5 col-offset-1 app-text-justify">
+                    <p>Nihil morati post haec militares avidi saepe turbarum adorti sunt Montium primum, qui divertebat in proximo, levi corpore senem atque morbosum, et hirsutis resticulis cruribus eius innexis divaricaturn sine spiramento ullo ad usque praetorium traxere praefecti.</p>
+                  </div>
+                </div>
+
+                <div class="row app-classWithPad">
+                    <div class="col-12 col-sm-12 col-md-6">
+                        <canvas id="myChart3"></canvas>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-5 col-offset-1 app-text-justify">
+                        <p>Nihil morati post haec militares avidi saepe turbarum adorti sunt Montium primum, qui divertebat in proximo, levi corpore senem atque morbosum, et hirsutis resticulis cruribus eius innexis divaricaturn sine spiramento ullo ad usque praetorium traxere praefecti.</p>
+                      </div>
+                    </div>
+
+            </div>
+        </div>
+        </div>
+        <script type="text/javascript" src="utility.js"></script> 
+    </body>
+</html>
