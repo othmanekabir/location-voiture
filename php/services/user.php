@@ -32,5 +32,12 @@
             $stmt->execute();
             return $stmt;
         }
+
+        public function insertuser($nom, $prenom, $adresse, $ville, $codepostal, $email, $password){
+            $sqlQuery = " INSERT INTO " . $this->db_table . " (nom, prenom, adresse, ville, codepostal, email, password) values ('".$nom."','".$prenom."','".$adresse."','".$ville."','".$codepostal."','".$email."','".$password."')";
+            $stmt = $this->conn->prepare($sqlQuery);
+            $stmt->execute();
+            return $stmt;
+        }
     }
 ?>

@@ -128,11 +128,31 @@ function connexion(){
     })
 }
 
+function signup(){
+    var email = document.getElementById("email").value;
+    var passwd = document.getElementById("passwd").value;
+    var nom = document.getElementById("nom").value;
+    var prenom = document.getElementById("prenom").value;
+    var adresse = document.getElementById("adresse").value;
+    var ville = document.getElementById("ville").value;
+    var codepostale = document.getElementById("codepostal").value;
+
+
+    var requestws = "http://localhost:80/LoactionVoiture/php/controller/insertuser.php?nom="+nom+"&prenom="+prenom+"&adresse="+adresse+"&ville="+ville+"&codepostale="+codepostale+"&passwd="+passwd+"&email="+email;
+    get(requestws, function (response){
+        window.location = "login.html";
+    }, function(error){
+        alert("nom d'itilisateur/mot de passe incorrect");
+    })
+}
+
 function deconnexion(){
     //document.cookie = userconnexion + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
     document.cookie = "userconnexion=; Max-Age=-99999999;"; 
     window.location = "login.html";
-}     
+}  
+
+
 
 
 
